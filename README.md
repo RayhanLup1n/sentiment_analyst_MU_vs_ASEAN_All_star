@@ -1,97 +1,97 @@
 # 🧠 Sentiment Analysis on Manchester United’s Defeat Against ASEAN All Stars
 
-This is a personal NLP project that analyzes public sentiment in response to the unexpected defeat of Manchester United against the ASEAN All Stars. It aims to classify online comments into **supportive**, **hateful**, or **neutral**, and deploy a working model for public interaction via **Streamlit**.
+This is a personal NLP project that analyzes public sentiment in response to Manchester United's unexpected loss to the ASEAN All Stars. The current stage focuses on **data collection**, while modeling and deployment will be completed in later phases.
 
 ---
 
 ## 🚀 Project Goals
 
-- **Portfolio Enhancement**: Showcase NLP and deployment skills in a real-world scenario.
-- **Sentiment Detection**: Classify public opinions into 3 categories:
-  - **Positive (Supporter)**: Comments supporting or defending Manchester United.
-  - **Negative (Hater)**: Comments mocking or criticizing MU.
-  - **Neutral (Observer)**: Comments that are objective or emotionless.
-- **Public Interaction**: Let users input their opinion and see how the model classifies them.
+- **Sentiment Collection**: Gather public reactions from multiple online platforms regarding the match.
+- **Future Modeling Plan**:
+  - Develop a sentiment classification model to categorize users as:
+    - **Supporters** (positive sentiment)
+    - **Haters** (negative sentiment)
+    - **Neutral** (objective/no sentiment)
+  - Deploy the model via a Streamlit app.
 
 ---
 
-## 📌 Project Features
+## 📊 Data Collection Summary
 
-- Scraping data from:
-  - 5 online news articles
-  - 3 YouTube videos (comment section)
-  - 2 TikTok videos (comment section)
-- Semi-unsupervised labeling using:
-  - Keyword-based rules
-  - Clustering (TF-IDF + KMeans)
-- Classical machine learning model (e.g., Naive Bayes, Logistic Regression)
-- Deployed via **Streamlit** with a form input system:
-  - Users answer 3–5 football-related questions
-  - Write a 1–2 paragraph comment about Manchester United
-  - Model predicts sentiment type (Supporter / Hater / Neutral)
+### ✅ News Articles
+- **5** news articles were manually scraped due to dynamic and inconsistent HTML structures that made automatic scraping unreliable.
+
+### ✅ News Comments
+- Only **2** out of 5 news portals contained comment sections.
+- All comments were manually copied since automated scraping was not feasible.
+
+### ✅ YouTube Comments (using Google API)
+Comments were retrieved via the official YouTube Data API.
+
+| Video ID        | Actual Comments | Comments Retrieved |
+|----------------|------------------|---------------------|
+| hFIMNthZ6ow     | 445              | 404                 |
+| 8p-pFSN17n0     | 9                | 9                   |
+| NYS5HSUVdz8     | 8971             | 1000 (API limited)  |
+
+### ✅ TikTok Comments (using [cubernetes](https://github.com/cubernetes/TikTokCommentScraper))
+Comments were retrieved using the Cubernetes browser-based TikTok scraper.
+
+| Video Link                                                                                 | Actual Comments | Comments Retrieved |
+|-------------------------------------------------------------------------------------------|------------------|---------------------|
+| https://www.tiktok.com/@kylectrix/video/7509509579127000328 (VT1)                         | 4483             | 3381                |
+| https://www.tiktok.com/@nayeemutd1/video/7509507904832048406 (VT2)                        | 2280             | 1725                |
+| https://www.tiktok.com/@kylectrix/video/7509828777682455816 (VT3)                         | 919              | 510                 |
 
 ---
 
 ## 🧱 Project Structure
 
 ```plaintext
-project-root/
+project_root/
 │
-├── data/                         # Raw and cleaned datasets
-│   ├── raw/                      # Raw scraped data
-│   └── processed/                # Cleaned and labeled data
+├── data/
+│   └── raw/                         # All collected raw data
+│       ├── raw_data.csv
+│       ├── raw_data.xlsx
+│       ├── raw_comment_data.csv
+│       ├── raw_comment_data.xlsx
+│       ├── youtube_comments.csv
+│       ├── tiktok_comments_raw_1.xlsx
+│       ├── tiktok_comments_raw_2.xlsx
+│       └── tiktok_comments_raw_3.xlsx
 │
-├── notebooks/                    # Development and experimentation notebooks
-│   ├── 01_scraping.ipynb         # Scraping news and comment data
-│   ├── 02_preprocessing.ipynb    # Text normalization and cleaning
-│   ├── 03_labeling.ipynb         # Rule-based and clustering sentiment labeling
-│   ├── 04_modeling.ipynb         # Training and evaluation of ML models
+├── notebook/
+│   └── 02_scraping_youtube_comment.ipynb
 │
-├── app/                          # Streamlit deployment app
-│   ├── streamlit_app.py          # Main Streamlit interface
-│   └── model.pkl                 # Trained model for inference
+├── notebook_dev/
+│   └── 01_scraping_experiment.ipynb
 │
-├── README.md
-└── requirements.txt              # Project dependencies
+└── README.md
 ```
-
----
-
-## 📈 Example Use Case (Streamlit)
-
-Users will be asked to:
-1. Answer several football-related questions.
-2. Write a short opinion about Manchester United (1–2 paragraphs).
-3. Click "Analyze Sentiment" to see if they are predicted as a **supporter**, **hater**, or **neutral** fan.
 
 ---
 
 ## ⚙️ Tech Stack
 
-- **Python 3.10+**
-- `BeautifulSoup`, `requests` – Web scraping
-- `pandas`, `scikit-learn` – Data processing & ML
-- `nltk`, `sastrawi` – NLP preprocessing (Bahasa Indonesia)
-- `streamlit` – Model deployment
-- `matplotlib`, `seaborn` – Data visualization
+- `pandas` – Data manipulation  
+- `requests`, `BeautifulSoup` – Web scraping (news sites)  
+- `google-api-python-client` – YouTube comment API  
+- `cubernetes` – TikTok comment scraper  
+- `openpyxl`, `xlsxwriter` – Spreadsheet formatting  
 
 ---
 
-## 🧪 Future Improvements
+## 🧪 Next Steps
 
-- Add deep learning model using IndoBERTweet
-- Improve labeling using semi-supervised learning
-- Multilingual support (English + Indonesian)
-- Live comment scraping via API (YouTube / TikTok)
-
----
-
-## 📄 License
-
-This project is open-source under the MIT License.
+- Clean and preprocess all collected comments  
+- Apply rule-based or clustering methods for semi-supervised labeling  
+- Train classification models (e.g., Logistic Regression, Naive Bayes)  
+- Deploy model as an interactive Streamlit app  
 
 ---
 
 ## 👤 Author
 
-Rayhan Ananda Resky – [LinkedIn](https://www.linkedin.com/in/rayhanananda/) | [GitHub](https://github.com/RayhanLup1n)
+**Rayhan Ananda Resky**  
+[LinkedIn](https://www.linkedin.com/in/rayhanananda/) | [GitHub](https://github.com/RayhanLup1n)
