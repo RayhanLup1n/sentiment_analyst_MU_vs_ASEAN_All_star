@@ -62,10 +62,11 @@ project_root/
 │       └── tiktok_comments_raw_3.xlsx
 │
 ├── notebook/
-│   └── 02_scraping_youtube_comment.ipynb
+│
 │
 ├── notebook_dev/
 │   └── 01_scraping_experiment.ipynb
+│   └── 02_scraping_youtube_comment.ipynb
 │
 └── README.md
 ```
