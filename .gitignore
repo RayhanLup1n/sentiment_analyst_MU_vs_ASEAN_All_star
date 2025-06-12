@@ -1,0 +1,43 @@
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VSCode / IDE related
+.vscode/
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv/
+.Python
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Model files / large files
+*.bin
+*.h5
+*.pt
+*.ckpt
+
+# Large raw data files backup
+data/raw_data.xlsx
+data/raw_comment_data.xlsx
+*.xlsx
+
+# API credentials or secret files
+credentials.json
+apikeys.json
+.env
+
+# Optional logs
+logs/
+*.log
