@@ -27,7 +27,7 @@ Final model used:
 
 ## 🖥️ Try It Live
 
-> **📌 [Click here to try the app →](https://your-streamlit-url-here)**  
+> **📌 [Click here to try the app →]([https://your-streamlit-url-here](https://mu-vs-asean-all-stars.streamlit.app/))**  
 Enter your opinion and see how it’s classified!
 
 ---
